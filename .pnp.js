@@ -19,19 +19,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "dependencyTreeRoots": [
       {
-        "name": "rlbotjavascriptexample",
+        "name": "rlbotvk",
         "reference": "workspace:."
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["rlbotjavascriptexample", ["workspace:."]]
+      ["rlbotvk", ["workspace:."]]
     ],
     "fallbackPool": [
       [
         "rlbotjs",
         "npm:0.0.2"
+      ],
+      [
+        "typescript",
+        "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"
       ]
     ],
     "locationBlacklistData": [
@@ -41,7 +45,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["rlbotjs", "npm:0.0.2"]
+            ["rlbotjs", "npm:0.0.2"],
+            ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
         }]
@@ -963,16 +968,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["rlbotjavascriptexample", [
-        ["workspace:.", {
-          "packageLocation": "./",
-          "packageDependencies": [
-            ["rlbotjavascriptexample", "workspace:."],
-            ["rlbotjs", "npm:0.0.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["rlbotjs", [
         ["npm:0.0.2", {
           "packageLocation": "./.yarn/cache/rlbotjs-npm-0.0.2-f875281af6-20f94a0b38.zip/node_modules/rlbotjs/",
@@ -984,6 +979,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ref-struct-di", "npm:1.1.1"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["rlbotvk", [
+        ["workspace:.", {
+          "packageLocation": "./",
+          "packageDependencies": [
+            ["rlbotvk", "workspace:."],
+            ["rlbotjs", "npm:0.0.2"],
+            ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["safe-buffer", [
@@ -1129,6 +1135,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tweetnacl-npm-0.14.5-a3f766c0d1-e1c9d52e2e.zip/node_modules/tweetnacl/",
           "packageDependencies": [
             ["tweetnacl", "npm:0.14.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["typescript", [
+        ["patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2", {
+          "packageLocation": "./.yarn/cache/typescript-patch-ba0dbfd217-f0d3d9c987.zip/node_modules/typescript/",
+          "packageDependencies": [
+            ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "HARD",
         }]

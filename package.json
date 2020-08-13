@@ -1,11 +1,12 @@
 {
-  "name": "rlbotjavascriptexample",
+  "name": "rlbotvk",
   "version": "1.0.0",
   "description": "An example bot implemented in JavaScript",
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "rlbotjs": "^0.0.2"
+    "rlbotjs": "^0.0.2",
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "dev": "node ./.yarn/releases/yarn-berry.js node .",

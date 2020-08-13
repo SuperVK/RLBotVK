@@ -791,14 +791,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rlbotjavascriptexample@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "rlbotjavascriptexample@workspace:."
-  dependencies:
-    rlbotjs: ^0.0.2
-  languageName: unknown
-  linkType: soft
-
 "rlbotjs@npm:^0.0.2":
   version: 0.0.2
   resolution: "rlbotjs@npm:0.0.2"
@@ -810,6 +802,15 @@ __metadata:
   checksum: 20f94a0b38755fe631f442ddd55dabc818075683f8e09437eaaf868baae988f04d5c7cf70990bdb0c47c1f212b90c3be9d045d54e9b01ebba43a8bf485e949a9
   languageName: node
   linkType: hard
+
+"rlbotvk@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "rlbotvk@workspace:."
+  dependencies:
+    rlbotjs: ^0.0.2
+    typescript: ^3.9.7
+  languageName: unknown
+  linkType: soft
 
 "safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.2":
   version: 5.2.1
@@ -942,6 +943,26 @@ __metadata:
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
   checksum: e1c9d52e2e9f582fd0df9ea26ba5a9ab88b9a38b69625d8e55c5e8870a4832ac8c32f8854b41fce7b59f97258bb103535363f9eda7050aa70e75824b972c7dde
+  languageName: node
+  linkType: hard
+
+typescript@^3.9.7:
+  version: 3.9.7
+  resolution: "typescript@npm:3.9.7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10848a9c35fd8c70a8792b8bd9485317534bcd58768793d3b7d9c7486e9fd30cf345f83fa2a324e0bf6088bc8a4d8d061d58fda38b18c2ff187cf01fbbff6267
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^3.9.7#builtin<compat/typescript>":
+  version: 3.9.7
+  resolution: "typescript@patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f0d3d9c987860c7c458229ab6dd7e3d322405db36b70abccba610b5efd9f9451e4e67a3fc7983c0d3741033c1f1a8d7aa859a1510caa8f20fad762fc39648bfa
   languageName: node
   linkType: hard
 

@@ -83,19 +83,7 @@ class ATBA extends BaseAgent {
 
 
         controller.throttle = 1;
-        return controller; //yes this returns before the gravity get canceled, so move the return if you want to have 0 gravity
-
-        //cancel gravity
-        //PROBABLY WANNA REMOVE THIS
-        let cars = []
-        for(let car of gameTickPacket.players) {
-            cars.push(new CarState(new Physics(null, null, new Vector3(null, null, car.physics.velocity.z+(650/60))))) //assumes you are running 60fps
-        }
-        let ball = new BallState(new Physics(null, null, new Vector3(null, null, gameTickPacket.ball.physics.velocity.z+(650/60)))) //assumes you are running 60fps
-        this.setGameState(new GameState(ball, cars))
-
-
-
+        return controller;
         
 
     }
