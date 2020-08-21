@@ -30,8 +30,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "fallbackPool": [
       [
+        "@types/node",
+        "npm:14.0.27"
+      ],
+      [
+        "mathjs",
+        "npm:7.1.0"
+      ],
+      [
+        "node-watch",
+        "npm:0.6.4"
+      ],
+      [
         "rlbotjs",
-        "npm:0.0.2"
+        "npm:0.0.4"
       ],
       [
         "typescript",
@@ -45,10 +57,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["rlbotjs", "npm:0.0.2"],
+            ["@types/node", "npm:14.0.27"],
+            ["mathjs", "npm:7.1.0"],
+            ["node-watch", "npm:0.6.4"],
+            ["rlbotjs", "npm:0.0.4"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
+        }]
+      ]],
+      ["@types/node", [
+        ["npm:14.0.27", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-14.0.27-d33df6dc81-54ecf408eb.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:14.0.27"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["abbrev", [
@@ -215,6 +239,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["complex.js", [
+        ["npm:2.0.11", {
+          "packageLocation": "./.yarn/cache/complex.js-npm-2.0.11-89ac9823c9-00305ab626.zip/node_modules/complex.js/",
+          "packageDependencies": [
+            ["complex.js", "npm:2.0.11"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["concat-map", [
         ["npm:0.0.1", {
           "packageLocation": "./.yarn/cache/concat-map-npm-0.0.1-85a921b7ee-554e28d9ee.zip/node_modules/concat-map/",
@@ -266,6 +299,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["decimal.js", [
+        ["npm:10.2.0", {
+          "packageLocation": "./.yarn/cache/decimal.js-npm-10.2.0-9960ab19c0-f60df1cce5.zip/node_modules/decimal.js/",
+          "packageDependencies": [
+            ["decimal.js", "npm:10.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["delayed-stream", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/delayed-stream-npm-1.0.0-c5a4c4cc02-d9dfb0a7c7.zip/node_modules/delayed-stream/",
@@ -300,6 +342,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/env-paths-npm-2.2.0-ac4ed99068-09de4fd1c0.zip/node_modules/env-paths/",
           "packageDependencies": [
             ["env-paths", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["escape-latex", [
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/escape-latex-npm-1.2.0-1481ca81a7-d8012eb447.zip/node_modules/escape-latex/",
+          "packageDependencies": [
+            ["escape-latex", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -382,6 +433,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["asynckit", "npm:0.4.0"],
             ["combined-stream", "npm:1.0.8"],
             ["mime-types", "npm:2.1.27"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["fraction.js", [
+        ["npm:4.0.12", {
+          "packageLocation": "./.yarn/cache/fraction.js-npm-4.0.12-bd8d4b9ec6-8cb75f0508.zip/node_modules/fraction.js/",
+          "packageDependencies": [
+            ["fraction.js", "npm:4.0.12"]
           ],
           "linkType": "HARD",
         }]
@@ -582,6 +642,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["javascript-natural-sort", [
+        ["npm:0.7.1", {
+          "packageLocation": "./.yarn/cache/javascript-natural-sort-npm-0.7.1-9018625996-f097317419.zip/node_modules/javascript-natural-sort/",
+          "packageDependencies": [
+            ["javascript-natural-sort", "npm:0.7.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["jsbn", [
         ["npm:0.1.1", {
           "packageLocation": "./.yarn/cache/jsbn-npm-0.1.1-0eb7132404-b530d48a64.zip/node_modules/jsbn/",
@@ -627,6 +696,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["extsprintf", "npm:1.3.0"],
             ["json-schema", "npm:0.2.3"],
             ["verror", "npm:1.10.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mathjs", [
+        ["npm:7.1.0", {
+          "packageLocation": "./.yarn/cache/mathjs-npm-7.1.0-8b14f3b8f6-a73a832ca8.zip/node_modules/mathjs/",
+          "packageDependencies": [
+            ["mathjs", "npm:7.1.0"],
+            ["complex.js", "npm:2.0.11"],
+            ["decimal.js", "npm:10.2.0"],
+            ["escape-latex", "npm:1.2.0"],
+            ["fraction.js", "npm:4.0.12"],
+            ["javascript-natural-sort", "npm:0.7.1"],
+            ["seed-random", "npm:2.2.0"],
+            ["tiny-emitter", "npm:2.1.0"],
+            ["typed-function", "npm:2.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -741,6 +827,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/node-gyp-build-npm-4.2.3-051c80c95f-8512c25498.zip/node_modules/node-gyp-build/",
           "packageDependencies": [
             ["node-gyp-build", "npm:4.2.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["node-watch", [
+        ["npm:0.6.4", {
+          "packageLocation": "./.yarn/cache/node-watch-npm-0.6.4-14d658b17f-9af39ae807.zip/node_modules/node-watch/",
+          "packageDependencies": [
+            ["node-watch", "npm:0.6.4"]
           ],
           "linkType": "HARD",
         }]
@@ -969,10 +1064,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rlbotjs", [
-        ["npm:0.0.2", {
-          "packageLocation": "./.yarn/cache/rlbotjs-npm-0.0.2-f875281af6-20f94a0b38.zip/node_modules/rlbotjs/",
+        ["npm:0.0.4", {
+          "packageLocation": "./.yarn/cache/rlbotjs-npm-0.0.4-4d212a483b-1dbe24747d.zip/node_modules/rlbotjs/",
           "packageDependencies": [
-            ["rlbotjs", "npm:0.0.2"],
+            ["rlbotjs", "npm:0.0.4"],
             ["ffi-napi", "npm:2.5.0"],
             ["flatbuffers", "npm:1.12.0"],
             ["ref-napi", "npm:1.5.2"],
@@ -986,7 +1081,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["rlbotvk", "workspace:."],
-            ["rlbotjs", "npm:0.0.2"],
+            ["@types/node", "npm:14.0.27"],
+            ["mathjs", "npm:7.1.0"],
+            ["node-watch", "npm:0.6.4"],
+            ["rlbotjs", "npm:0.0.4"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
@@ -1013,6 +1111,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/safer-buffer-npm-2.1.2-8d5c0b705e-549ba83f5b.zip/node_modules/safer-buffer/",
           "packageDependencies": [
             ["safer-buffer", "npm:2.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["seed-random", [
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/seed-random-npm-2.2.0-e78c15bb55-61cb57e7d8.zip/node_modules/seed-random/",
+          "packageDependencies": [
+            ["seed-random", "npm:2.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -1109,6 +1216,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["tiny-emitter", [
+        ["npm:2.1.0", {
+          "packageLocation": "./.yarn/cache/tiny-emitter-npm-2.1.0-2a4d94f487-0055509c72.zip/node_modules/tiny-emitter/",
+          "packageDependencies": [
+            ["tiny-emitter", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["tough-cookie", [
         ["npm:2.5.0", {
           "packageLocation": "./.yarn/cache/tough-cookie-npm-2.5.0-79a2fe43fe-bf5d6fac5c.zip/node_modules/tough-cookie/",
@@ -1135,6 +1251,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tweetnacl-npm-0.14.5-a3f766c0d1-e1c9d52e2e.zip/node_modules/tweetnacl/",
           "packageDependencies": [
             ["tweetnacl", "npm:0.14.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["typed-function", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/typed-function-npm-2.0.0-6a33283314-0bf5a920ac.zip/node_modules/typed-function/",
+          "packageDependencies": [
+            ["typed-function", "npm:2.0.0"]
           ],
           "linkType": "HARD",
         }]
