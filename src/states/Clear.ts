@@ -1,76 +1,50 @@
-import BaseState from "./BaseState";
-import Agent from "../Agent";
-import { Vector3 } from "../utils/misc";
-import Orient from "./Orient";
+import BaseState from "./BaseState"
+import Agent from "../Agent"
 import DriveTo from "./DriveTo";
-import { getLocal } from "../utils/misc";
-import Stabilize from "./Stabilize";
-import { Ball } from "../utils/preprocessing";
+import { Vector3 } from "../utils/misc";
+import BallShot from "./BallShot";
+import { Color } from "rlbotjs";
+
 
 export default class Clear extends BaseState {
-    intersectBall: Ball;
-    stage: Number;
-    stabalizing: Stabilize;
+    stage: number;
     constructor(agent: Agent) {
-        super(agent, 'CLEAR')
-        this.intersectBall = null
-        this.stage = 0;
+        super(agent, 'GOALSHOT')
     }
     run() {
-        console.log(this.stage)
-        if(this.stage == 0) {
-            if(this.agent.game.ball.localPosition.x > 0) {
-                this.stage = 2
-                this.intersectBall = this.getIntersectPoint()
-            
-                if(this.intersectBall == null) {
-                    this.intersectBall = this.agent.game.ball
-                    this.substate = new DriveTo(this.agent, this.intersectBall.position)
-                } else {
-                    this.substate = new DriveTo(this.agent, this.intersectBall.position, this.intersectBall.gameSeconds)
-                }
+        if(this.substate && this.substate.finished) this.substate = null
 
+        if(this.substate == null) {
+           // console.log(this.agent.game.myCar.team, this.agent.game.teamMult)
+           // console.log(this.agent.game.ball.position.y*this.agent.game.teamMult+500, this.agent.game.myCar.position.y)
+
+            if(this.agent.game.ball.position.y*this.agent.game.teamMult-1000 < this.agent.game.myCar.position.y*this.agent.game.teamMult) {
+                this.stage = 1
+                console.log(this.agent.game.teamMult)
+                let minY = this.agent.game.ball.position.y*this.agent.game.teamMult-1000
+
+                let location = new Vector3(0, minY*this.agent.game.teamMult, 0)
+                if(minY < -5120) minY = -5120
+                if(minY > 5120) minY = 5120
+
+                let blue = new Color(255, 0, 0, 255) 
+                this.agent.renderer.beginRendering()
+                this.agent.renderer.drawLine3D(location.add(new Vector3(-100, 0, 0)).convertToRLBot(), location.add(new Vector3(100, 0, 0)).convertToRLBot(), blue)
+                this.agent.renderer.drawLine3D(location.add(new Vector3(0, -100, 0)).convertToRLBot(), location.add(new Vector3(0, 100, 0)).convertToRLBot(), blue)
+                this.agent.renderer.drawLine3D(location.add(new Vector3(0, 0, -100)).convertToRLBot(), location.add(new Vector3(0, 0, 100)).convertToRLBot(), blue)
+                this.agent.renderer.endRendering()
+
+
+                
+                this.substate = new DriveTo(this.agent, location)
                 this.agent.addState(this.substate)
+            } else {
+                this.stage = 0
 
-                return
-            }
-
-            let localVelocity = getLocal(new Vector3(0,0,0), this.agent.game.myCar.rotation, this.agent.game.myCar.velocity)
-
-            this.agent.controller.throttle = -localVelocity.x
-            //console.log(this.agent.game.myCar.velocity.getMagnitude())
-            if(this.agent.game.myCar.velocity.getMagnitude() < 250) {
-                console.log('whatttt')
-                this.stage = 1;
-                this.substate = new Orient(this.agent, this.agent.game.ball.position)
+                this.substate = new BallShot(this.agent)
                 this.agent.addState(this.substate)
-                console.log(this.agent.stateStack.map(s => s.type))
             }
         }
-
-        if(this.stage == 1 && this.substate.finished) {
-            this.intersectBall = this.getIntersectPoint()
-
-            if(this.intersectBall == null) this.intersectBall = this.agent.game.ball
-
-            this.substate = new DriveTo(this.agent, this.intersectBall.position, this.intersectBall.gameSeconds)
-            this.agent.addState(this.substate)
-            this.stage = 2
-        }
         
-        if(this.stage == 2 && this.substate.finished) this.finished = true
-            
-        
-    }
-    getIntersectPoint() {
-        let lengthToBall = this.agent.game.myCar.position.subtract(this.agent.game.ball.position).getMagnitude()
-
-        let secondsArriving = lengthToBall/1000
-
-        let futureBall = this.agent.game.ballPredictions.find(b => Math.round(b.gameSeconds) == Math.round(this.agent.game.gameInfo.secondsElapsed+secondsArriving))
-
-        if(futureBall == null) return null
-
-        return this.agent.game.ballPredictions.find(b => Math.round(b.gameSeconds) == Math.round(this.agent.game.gameInfo.secondsElapsed+secondsArriving))
     }
 }

@@ -13,15 +13,14 @@ export default class Stabilize extends BaseState {
         
     }
     run() {
-        
+        this._run()
         if(this.timer > 0.1) {
             this.jumpedAt = this.timer
             this.agent.controller.jump = true;
         }
 
-        console.log(this.timer-this.jumpedAt)
 
-        this._run()
+        
 
         if(this.timer-this.jumpedAt > 0.2) {
             this.jumpedAt = this.timer

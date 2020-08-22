@@ -33,8 +33,6 @@ export default class DriveTo extends BaseState {
 
             let currentETA = this.agent.game.gameInfo.secondsElapsed+(lengthToBall/this.agent.game.myCar.velocity.getMagnitude())
 
-
-            console.log(localPos.x)
             if(localPos.x < 1000 && localPos.x > 0 && Math.abs(localPos.y) < 100) this.agent.addState(new Dodge(this.agent))
 
             if(currentETA > this.ETA) this.agent.controller.throttle = 1

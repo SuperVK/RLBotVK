@@ -16,6 +16,7 @@ import Orient from './states/Orient'
 import BaseState from './states/BaseState'
 import DriveTo from './states/DriveTo';
 import Stabilize from './states/Stabilize';
+import Dodge from './states/Dodge';
 
 export default class Agent extends BaseAgent {
     controller: SimpleController;
@@ -34,7 +35,8 @@ export default class Agent extends BaseAgent {
     getOutput(gameTickPacket: GameTickPacket, ballPrediction: BallPrediction) {
         this.preprocessing(gameTickPacket, ballPrediction)
 
-        console.log('sup')
+        this.checkOverridingStates()
+
         this.runStateStack()
 
         return this.controller
@@ -42,14 +44,16 @@ export default class Agent extends BaseAgent {
     checkOverridingStates() {
         let myCar = this.game.myCar
 
-        if((Math.round(myCar.rotation.pitch*10)/10 != 0 || Math.round(myCar.rotation.roll*10)/10 != 0) && !(this.stateStack[this.stateStack.length-1] instanceof Stabilize)) {
-            console.log('stabilizing')
+        if((Math.round(myCar.rotation.pitch*5)/5 != 0 || Math.round(myCar.rotation.roll*5)/5 != 0) && !(this.stateStack[this.stateStack.length-1] instanceof Stabilize) && !(this.stateStack[this.stateStack.length-1] instanceof Dodge)) {
+        //    console.log('stabilizing')
             this.stateStack.push(new Stabilize(this))
             return
         }
 
         if(this.game.ball.latestTouch != undefined)
-            if(this.game.gameInfo.secondsElapsed-this.game.ball.latestTouch.gameSeconds < 1) this.stateStack.splice(0, 1)
+            if(this.game.gameInfo.secondsElapsed-this.game.ball.latestTouch.gameSeconds < 1) this.stateStack = []
+
+        if(this.game.gameInfo.isKickoffPause) this.stateStack = [new DriveTo(this, new Vector3(0, 0, 0))]
     }
     addState(state: BaseState) {
         this.stateStack.push(state)
@@ -76,7 +80,7 @@ export default class Agent extends BaseAgent {
             this.stateStack.push(this.findNewState())
         }
 
-        console.log(this.game.myCar.team, this.stateStack.map(s => s.type))
+     //   console.log(this.game.myCar.team, this.stateStack.map(s => s.type))
 
         this.stateStack[this.stateStack.length-1].run()
 
