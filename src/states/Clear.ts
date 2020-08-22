@@ -20,7 +20,6 @@ export default class Clear extends BaseState {
 
             if(this.agent.game.ball.position.y*this.agent.game.teamMult-1000 < this.agent.game.myCar.position.y*this.agent.game.teamMult) {
                 this.stage = 1
-                console.log(this.agent.game.teamMult)
                 let minY = this.agent.game.ball.position.y*this.agent.game.teamMult-1000
 
                 let location = new Vector3(0, minY*this.agent.game.teamMult, 0)
