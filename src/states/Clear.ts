@@ -26,13 +26,6 @@ export default class Clear extends BaseState {
                 if(minY < -5120) minY = -5120
                 if(minY > 5120) minY = 5120
 
-                let blue = new Color(255, 0, 0, 255) 
-                this.agent.renderer.beginRendering()
-                this.agent.renderer.drawLine3D(location.add(new Vector3(-100, 0, 0)).convertToRLBot(), location.add(new Vector3(100, 0, 0)).convertToRLBot(), blue)
-                this.agent.renderer.drawLine3D(location.add(new Vector3(0, -100, 0)).convertToRLBot(), location.add(new Vector3(0, 100, 0)).convertToRLBot(), blue)
-                this.agent.renderer.drawLine3D(location.add(new Vector3(0, 0, -100)).convertToRLBot(), location.add(new Vector3(0, 0, 100)).convertToRLBot(), blue)
-                this.agent.renderer.endRendering()
-
 
                 
                 this.substate = new DriveTo(this.agent, location)
